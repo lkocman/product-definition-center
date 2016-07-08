@@ -11,7 +11,7 @@ from django.core.urlresolvers import reverse
 from rest_framework.test import APITestCase
 from rest_framework import status
 
-rpms_json_path = os.path.join(os.path.dirname(__file__), "test_tree.json"))
+rpms_json_path = os.path.join(os.path.dirname(__file__), "test_tree.json")
 rpms_json = open(rpms_json_path, "r").read()
 
 class TreeAPITestCase(APITestCase):
