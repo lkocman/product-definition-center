@@ -62,12 +62,13 @@ class UnreleasedVariantSerializer(StrictSerializerMixin,
     variant_name        = serializers.CharField(max_length=300)
     variant_type        = serializers.CharField(max_length=100)
     variant_version     = serializers.CharField(max_length=100)
+    variant_release     = serializers.CharField(max_length=100)
     koji_tag            = serializers.CharField(max_length=300)
 
     class Meta:
         model = UnreleasedVariant
         fields = (
-            'variant_id', 'variant_uid', 'variant_name', 'variant_type', 'variant_version', 'koji_tag'
+            'variant_id', 'variant_uid', 'variant_name', 'variant_type', 'variant_version', 'variant_release', 'koji_tag'
         )
 
 

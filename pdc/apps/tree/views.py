@@ -223,6 +223,7 @@ class UnreleasedVariantViewSet(viewsets.PDCModelViewSet):
                         "variant_name": string,
                         "variant_type": string,
                         "variant_version": string,
+                        "variant_release": string
                     },
                     ...
             }
@@ -244,6 +245,7 @@ class UnreleasedVariantViewSet(viewsets.PDCModelViewSet):
                 "variant_name": string,
                 "variant_type": string,
                 "variant_version": string,
+                "variant_release": string
             }
         """
         return super(UnreleasedVariantViewSet, self).retrieve(request, *args, **kwargs)
@@ -262,7 +264,8 @@ class UnreleasedVariantViewSet(viewsets.PDCModelViewSet):
                         "variant_uid": string,    # required
                         "variant_name": string,   # required
                         "variant_type": string,   # required
-                        "variant_version": string,# variant-version
+                        "variant_version": string,# required
+                        "variant_release": string # required
             }
 
         __Response__:
@@ -272,6 +275,8 @@ class UnreleasedVariantViewSet(viewsets.PDCModelViewSet):
                         "variant_uid": string,  # required
                         "variant_name": string, # required
                         "variant_type": string, # required
+                        "variant_version": string,# required
+                        "variant_release": string # required
             }
 
         __Example__:

@@ -12,12 +12,13 @@ class UnreleasedVariant(models.Model): # Not the variant from compose ... which 
     variant_name        = models.CharField(max_length=300, blank=False)
     variant_type        = models.CharField(max_length=100, blank=False)
     variant_version     = models.CharField(max_length=100, blank=False)
+    variant_release     = models.CharField(max_length=100, blank=False)
     koji_tag            = models.CharField(max_length=300, blank=False)
 
     class Meta:
-        ordering = ("variant_uid", "variant_version")
+        ordering = ("variant_uid", "variant_version", "variant_release")
         unique_together = (
-            ("variant_uid", "variant_version"),
+            ("variant_uid", "variant_version", "variant_release"),
         )
 
     def __unicode__(self):
@@ -30,6 +31,7 @@ class UnreleasedVariant(models.Model): # Not the variant from compose ... which 
             'variant_name': self.variant_name,
             'variant_type': self.variant_type,
             'variant_version': self.variant_version,
+            'variant_release': self.variant_release,
             'koji_tag': self.koji_tag
         }
 

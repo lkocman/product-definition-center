@@ -39,15 +39,16 @@ class Migration(migrations.Migration):
                 ('variant_name', models.CharField(max_length=300)),
                 ('variant_type', models.CharField(max_length=100)),
                 ('variant_version', models.CharField(max_length=100)),
+                ('variant_release', models.CharField(max_length=100)),
                 ('koji_tag', models.CharField(max_length=300)),
             ],
             options={
-                'ordering': ('variant_uid', 'variant_version'),
+                'ordering': ('variant_uid', 'variant_version', 'variant_release'),
             },
         ),
         migrations.AlterUniqueTogether(
             name='unreleasedvariant',
-            unique_together=set([('variant_uid', 'variant_version')]),
+            unique_together=set([('variant_uid', 'variant_version', 'variant_release')]),
         ),
         migrations.AddField(
             model_name='tree',
